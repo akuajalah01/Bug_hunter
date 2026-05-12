@@ -1,6 +1,7 @@
+from core.scanner import Scanner
+
 class LFIModule:
     def __init__(self, target_url, proxy=None):
-        from core.scanner import Scanner
         self.scanner = Scanner(target_url, proxy)
     
     def run(self, param):
