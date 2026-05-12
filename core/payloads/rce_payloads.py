@@ -4,5 +4,6 @@ RCE_PAYLOADS = [
     "| id",
     "; id",
     "`id`",
-    "$(id)"
+    "$(id)",
+    "';phpinfo();--"
 ]
